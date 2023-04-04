@@ -27,7 +27,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi, what would you like to learn about this legal case?',
+        message: "Hello there! I'm MarIA a AI powered Nuno's personal assistant." ,
         type: 'apiMessage',
       },
     ],
@@ -138,6 +138,7 @@ export default function Home() {
     [query],
   );
 
+
   const chatMessages = useMemo(() => {
     return [
       ...messages,
@@ -163,9 +164,9 @@ export default function Home() {
   return (
     <>
       <Layout>
-        <div className="mx-auto flex flex-col gap-4">
-          <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
-            Chat With Your Legal Docs
+        <div className="mx-auto bg-bgdark flex flex-col gap-4">
+          <h1 className="text-2xl text-designColor font-bold leading-[1.1] tracking-tighter text-center">
+            Chat With MarIA, Nuno's Personal AI Assistant.
           </h1>
           <main className={styles.main}>
             <div className={styles.cloud}>
@@ -279,7 +280,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'What is this legal case about?'
+                        : 'What do you want to know about Nuno?'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
@@ -315,9 +316,9 @@ export default function Home() {
             )}
           </main>
         </div>
-        <footer className="m-auto p-4">
-          <a href="https://twitter.com/mayowaoshin">
-            Powered by LangChainAI. Demo built by Mayo (Twitter: @mayowaoshin).
+        <footer className="m-auto p-6 pb-11 text-textColor">
+          <a href="https://python.langchain.com/en/latest/index.html">
+            Powered by LangChainAI.
           </a>
         </footer>
       </Layout>
