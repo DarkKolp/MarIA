@@ -45,8 +45,9 @@ export default function Home() {
   }, []);
 
   //handle form submission
-  async function handleSubmit(e: any) {
+  const handleSubmit = useCallback(async (e: any) => {
     e.preventDefault();
+  
 
     setError(null);
 
@@ -124,7 +125,7 @@ export default function Home() {
       setError('An error occurred while fetching the data. Please try again.');
       console.log('error', error);
     }
-  }
+  }, [query, setError, setLoading, history],); // Include any dependencies needed for handleSubmit
 
   //prevent empty submissions
   const handleEnter = useCallback(
@@ -135,7 +136,7 @@ export default function Home() {
         e.preventDefault();
       }
     },
-    [query],
+    [query, handleSubmit],
   );
 
 
@@ -166,7 +167,7 @@ export default function Home() {
       <Layout>
         <div className="mx-auto bg-bgdark flex flex-col gap-4">
           <h1 className="text-2xl text-designColor font-bold leading-[1.1] tracking-tighter text-center">
-            Chat With MarIA, Nuno's Personal AI Assistant.
+            Chat With MarIA, Nuno&apos;s Personal AI Assistant.
           </h1>
           <main className={styles.main}>
             <div className={styles.cloud}>
